@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* === ESTILO SIMPLIFICADO (CSS INTEGRADO) === */
+    /* === ESTILO ATUALIZADO (IMAGEM CENTRALIZADA + RESPONSIVO) === */
     :root {
       --roxo: #6e45e2;
       --branco: #ffffff;
@@ -26,20 +26,53 @@
       background: var(--branco);
       color: var(--preto);
       line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* Partículas (opcional - pode remover) */
-    .particulas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    /* === CABEÇALHO CENTRALIZADO === */
+    .cabecalho {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px; /* Espaço para a navegação fixa */
     }
 
-    /* Navegação */
+    .foto-perfil {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--roxo);
+      margin-bottom: 25px;
+      box-shadow: 0 5px 15px rgba(110, 69, 226, 0.3);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      color: var(--roxo);
+    }
+
+    .cabecalho-sub-titulo {
+      font-size: 1.1rem;
+      color: #777;
+      max-width: 500px;
+      margin: 0 auto 25px;
+    }
+
+    .redes-sociais {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    /* === RESTANTE DO CSS (MESMO DO CÓDIGO ANTERIOR) === */
     nav {
       background: rgba(255, 255, 255, 0.9);
       padding: 15px 0;
@@ -55,198 +88,13 @@
       justify-content: center;
       list-style: none;
       gap: 20px;
+      flex-wrap: wrap;
     }
 
-    .menu-link {
-      color: var(--preto);
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    .menu-link:hover, .ativo {
-      color: var(--roxo);
-    }
-
-    /* Cabeçalho */
-    .cabecalho {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    .foto-perfil {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 5px solid var(--roxo);
-      margin: 0 auto 20px;
-      box-shadow: 0 5px 15px rgba(110, 69, 226, 0.3);
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      color: var(--roxo);
-    }
-
-    .cabecalho-sub-titulo {
-      font-size: 1.2rem;
-      color: #777;
-      margin-bottom: 20px;
-    }
-
-    .redes-sociais {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .social-link {
-      color: var(--roxo);
-      font-size: 1.2rem;
-      transition: 0.3s;
-    }
-
-    .social-link:hover {
-      transform: translateY(-3px);
-    }
-
-    /* Seções */
-    .secao {
-      padding: 80px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .secao-titulo {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 40px;
-      color: var(--roxo);
-    }
-
-    /* Projetos */
-    .projetos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    .projeto-card {
-      background: var(--branco);
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      transition: 0.3s;
-    }
-
-    .projeto-card:hover {
-      transform: translateY(-10px);
-    }
-
-    .projeto-imagem {
-      height: 180px;
-      overflow: hidden;
-    }
-
-    .projeto-imagem img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: 0.5s;
-    }
-
-    .projeto-card:hover img {
-      transform: scale(1.1);
-    }
-
-    .projeto-card h3 {
-      padding: 15px;
-      font-size: 1.2rem;
-    }
-
-    .projeto-card p {
-      padding: 0 15px 15px;
-      color: #777;
-    }
-
-    /* Contato */
-    .contato-form {
-      max-width: 500px;
-      margin: 0 auto;
-      background: var(--branco);
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      font-size: 1rem;
-    }
-
-    textarea {
-      min-height: 150px;
-      resize: vertical;
-    }
-
-    .btn-enviar {
-      background: var(--roxo);
-      color: var(--branco);
-      border: none;
-      padding: 12px 25px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: 600;
-      width: 100%;
-      transition: 0.3s;
-    }
-
-    .btn-enviar:hover {
-      background: #5a35c9;
-    }
-
-    /* Rodapé */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: var(--cinza);
-      color: #777;
-    }
-
-    /* Responsivo */
-    @media (max-width: 768px) {
-      .menu {
-        flex-wrap: wrap;
-      }
-
-      .foto-perfil {
-        width: 150px;
-        height: 150px;
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-    }
+    /* ... (Mantenha o resto do CSS igual ao código anterior) ... */
   </style>
 </head>
 <body>
-  <!-- Fundo opcional (partículas) -->
-  <div class="particulas"></div>
-
   <!-- Navegação -->
   <nav>
     <ul class="menu">
@@ -257,94 +105,23 @@
     </ul>
   </nav>
 
-  <!-- Seção Início -->
+  <!-- Seção Início (Agora perfeitamente centralizada) -->
   <section id="inicio" class="cabecalho">
-    <div>
-      <!-- Imagem genérica (substitua pelo link da sua imagem) -->
-      <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Desenvolvedor" class="foto-perfil">
-      <h1>Seu Nome</h1>
-      <p class="cabecalho-sub-titulo">Desenvolvedor Front-End</p>
-      <div class="redes-sociais">
-        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-      </div>
+    <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
+         alt="Desenvolvedor" 
+         class="foto-perfil">
+    <h1>Seu Nome</h1>
+    <p class="cabecalho-sub-titulo">
+      Desenvolvedor Front-End especializado em criar interfaces modernas e responsivas 
+      com HTML, CSS e JavaScript.
+    </p>
+    <div class="redes-sociais">
+      <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+      <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+      <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
     </div>
   </section>
 
-  <!-- Seção Projetos -->
-  <section id="projetos" class="secao">
-    <h2 class="secao-titulo">Projetos</h2>
-    <div class="projetos-grid">
-      <!-- Projeto 1 -->
-      <div class="projeto-card">
-        <div class="projeto-imagem">
-          <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="E-commerce">
-        </div>
-        <h3>Loja Virtual</h3>
-        <p>E-commerce completo com carrinho de compras.</p>
-      </div>
-
-      <!-- Projeto 2 -->
-      <div class="projeto-card">
-        <div class="projeto-imagem">
-          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="App Delivery">
-        </div>
-        <h3>App Delivery</h3>
-        <p>Aplicativo de delivery com rastreamento.</p>
-      </div>
-
-      <!-- Projeto 3 -->
-      <div class="projeto-card">
-        <div class="projeto-imagem">
-          <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Rede Social">
-        </div>
-        <h3>Rede Social</h3>
-        <p>Plataforma para compartilhar conteúdo.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Seção Contato -->
-  <section id="contato" class="secao">
-    <h2 class="secao-titulo">Contato</h2>
-    <form class="contato-form">
-      <div class="form-group">
-        <input type="text" placeholder="Seu Nome" required>
-      </div>
-      <div class="form-group">
-        <textarea placeholder="Sua Mensagem" required></textarea>
-      </div>
-      <button type="submit" class="btn-enviar">Enviar Mensagem</button>
-    </form>
-  </section>
-
-  <!-- Rodapé -->
-  <footer>
-    <p>&copy; 2023 Portfólio Dev. Template para Fiverr.</p>
-  </footer>
-
-  <!-- Script para animação simples -->
-  <script>
-    // Navegação suave
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-
-    // Efeito hover nos cards
-    document.querySelectorAll('.projeto-card').forEach(card => {
-      card.addEventListener('mouseenter', () => {
-        card.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.15)';
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
-      });
-    });
-  </script>
+  <!-- ... (Mantenha as outras seções iguais ao código anterior) ... -->
 </body>
 </html>
