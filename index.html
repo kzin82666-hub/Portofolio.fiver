@@ -31,7 +31,50 @@
       flex-direction: column;
     }
 
-    /* === CABEÇALHO CENTRALIZADO === */
+    /* Partículas (opcional) */
+    .particulas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    /* Navegação */
+    nav {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 15px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .menu-link {
+      color: var(--preto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .menu-link:hover, .ativo {
+      color: var(--roxo);
+    }
+
+    /* Cabeçalho */
     .cabecalho {
       flex: 1;
       display: flex;
@@ -40,7 +83,7 @@
       justify-content: center;
       text-align: center;
       padding: 20px;
-      margin-top: 60px; /* Espaço para a navegação fixa */
+      margin-top: 60px;
     }
 
     .foto-perfil {
@@ -51,6 +94,11 @@
       border: 5px solid var(--roxo);
       margin-bottom: 25px;
       box-shadow: 0 5px 15px rgba(110, 69, 226, 0.3);
+      transition: 0.3s;
+    }
+
+    .foto-perfil:hover {
+      transform: scale(1.05);
     }
 
     h1 {
@@ -72,29 +120,220 @@
       gap: 15px;
     }
 
-    /* === RESTANTE DO CSS (MESMO DO CÓDIGO ANTERIOR) === */
-    nav {
-      background: rgba(255, 255, 255, 0.9);
-      padding: 15px 0;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      position: fixed;
+    .social-link {
+      color: var(--roxo);
+      font-size: 1.2rem;
+      transition: 0.3s;
+    }
+
+    .social-link:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Seções */
+    .secao {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .secao-titulo {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: var(--roxo);
+      position: relative;
+    }
+
+    .secao-titulo::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--roxo);
+    }
+
+    /* Projetos */
+    .projetos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .projeto-card {
+      background: var(--branco);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .projeto-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .projeto-imagem {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .projeto-imagem img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    .projeto-card:hover .projeto-imagem img {
+      transform: scale(1.1);
+    }
+
+    .projeto-overlay {
+      position: absolute;
       top: 0;
-      z-index: 1000;
-    }
-
-    .menu {
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(110, 69, 226, 0.8);
       display: flex;
+      align-items: center;
       justify-content: center;
-      list-style: none;
       gap: 20px;
-      flex-wrap: wrap;
+      opacity: 0;
+      transition: 0.3s;
     }
 
-    /* ... (Mantenha o resto do CSS igual ao código anterior) ... */
+    .projeto-card:hover .projeto-overlay {
+      opacity: 1;
+    }
+
+    .projeto-link {
+      color: var(--branco);
+      font-size: 1.5rem;
+      transition: 0.3s;
+    }
+
+    .projeto-link:hover {
+      transform: scale(1.2);
+    }
+
+    .projeto-card h3 {
+      padding: 20px;
+      font-size: 1.3rem;
+      color: var(--roxo);
+    }
+
+    .projeto-card p {
+      padding: 0 20px 20px;
+      color: #777;
+    }
+
+    /* Contato */
+    .contato-form {
+      max-width: 500px;
+      margin: 0 auto;
+      background: var(--branco);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--roxo);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(110, 69, 226, 0.2);
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .btn-enviar {
+      background: var(--roxo);
+      color: var(--branco);
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      width: 100%;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .btn-enviar:hover {
+      background: #5a35c9;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(110, 69, 226, 0.3);
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--cinza);
+      color: #777;
+      margin-top: auto;
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      .menu {
+        gap: 10px;
+      }
+      
+      .foto-perfil {
+        width: 150px;
+        height: 150px;
+      }
+      
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      .secao-titulo {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .menu-link {
+        padding: 5px 10px;
+        font-size: 0.9rem;
+      }
+      
+      .projetos-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Fundo de partículas (opcional) -->
+  <div id="particles-js" class="particulas"></div>
+
   <!-- Navegação -->
   <nav>
     <ul class="menu">
@@ -105,7 +344,7 @@
     </ul>
   </nav>
 
-  <!-- Seção Início (Agora perfeitamente centralizada) -->
+  <!-- Seção Início -->
   <section id="inicio" class="cabecalho">
     <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" 
          alt="Desenvolvedor" 
@@ -122,6 +361,163 @@
     </div>
   </section>
 
-  <!-- ... (Mantenha as outras seções iguais ao código anterior) ... -->
+  <!-- Seção Sobre -->
+  <section id="sobre" class="secao">
+    <h2 class="secao-titulo">Sobre Mim</h2>
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+      <p>Sou um desenvolvedor front-end apaixonado por criar experiências digitais incríveis. Com experiência em HTML, CSS e JavaScript, transformo designs em código eficiente e acessível.</p>
+      <p>Meu objetivo é entregar produtos que não apenas pareçam bons, mas que ofereçam uma experiência fluida e intuitiva para os usuários.</p>
+    </div>
+  </section>
+
+  <!-- Seção Projetos -->
+  <section id="projetos" class="secao">
+    <h2 class="secao-titulo">Projetos</h2>
+    <div class="projetos-grid">
+      <!-- Projeto 1 -->
+      <div class="projeto-card">
+        <div class="projeto-imagem">
+          <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="E-commerce">
+          <div class="projeto-overlay">
+            <a href="#" class="projeto-link"><i class="fas fa-external-link-alt"></i></a>
+            <a href="#" class="projeto-link"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <h3>Loja Virtual</h3>
+        <p>E-commerce completo com carrinho de compras e checkout.</p>
+      </div>
+
+      <!-- Projeto 2 -->
+      <div class="projeto-card">
+        <div class="projeto-imagem">
+          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="App Delivery">
+          <div class="projeto-overlay">
+            <a href="#" class="projeto-link"><i class="fas fa-external-link-alt"></i></a>
+            <a href="#" class="projeto-link"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <h3>App Delivery</h3>
+        <p>Aplicativo de delivery com rastreamento em tempo real.</p>
+      </div>
+
+      <!-- Projeto 3 -->
+      <div class="projeto-card">
+        <div class="projeto-imagem">
+          <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Rede Social">
+          <div class="projeto-overlay">
+            <a href="#" class="projeto-link"><i class="fas fa-external-link-alt"></i></a>
+            <a href="#" class="projeto-link"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <h3>Rede Social</h3>
+        <p>Plataforma para compartilhamento de conteúdo e interação.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Contato -->
+  <section id="contato" class="secao">
+    <h2 class="secao-titulo">Contato</h2>
+    <form class="contato-form" onsubmit="enviarWhatsapp(event)">
+      <div class="form-group">
+        <input type="text" id="nome" placeholder="Seu Nome" required>
+      </div>
+      <div class="form-group">
+        <textarea id="mensagem" placeholder="Sua Mensagem" required></textarea>
+      </div>
+      <button type="submit" class="btn-enviar">Enviar via WhatsApp <i class="fab fa-whatsapp"></i></button>
+    </form>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2023 Portfólio Dev. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    // Inicializar partículas (opcional)
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 80 },
+        color: { value: "#6e45e2" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: 3 },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#6e45e2",
+          opacity: 0.3,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: "none",
+          random: true,
+          straight: false,
+          out_mode: "out"
+        }
+      },
+      interactivity: {
+        events: {
+          onhover: {
+            enable: true,
+            mode: "repulse"
+          }
+        }
+      }
+    });
+
+    // Navegação suave
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+        
+        // Atualizar menu ativo
+        document.querySelectorAll('.menu-link').forEach(link => {
+          link.classList.remove('ativo');
+        });
+        this.classList.add('ativo');
+      });
+    });
+
+    // Formulário WhatsApp
+    function enviarWhatsapp(event) {
+      event.preventDefault();
+      const nome = document.getElementById('nome').value;
+      const mensagem = document.getElementById('mensagem').value;
+      const telefone = "SEU_NUMERO_AQUI"; // Substitua pelo seu número
+      const texto = `Olá, me chamo ${nome}. ${mensagem}`;
+      const url = `https://wa.me/${telefone}?text=${encodeURIComponent(texto)}`;
+      window.open(url, '_blank');
+    }
+
+    // Ativar menu conforme scroll
+    window.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('section');
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      document.querySelectorAll('.menu-link').forEach(link => {
+        link.classList.remove('ativo');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('ativo');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
