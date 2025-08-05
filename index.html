@@ -4,337 +4,347 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfólio Dev Front-End | Modelo Fiverr</title>
-  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* === ESTILO SIMPLIFICADO (CSS INTEGRADO) === */
+    :root {
+      --roxo: #6e45e2;
+      --branco: #ffffff;
+      --preto: #222222;
+      --cinza: #f5f5f7;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--branco);
+      color: var(--preto);
+      line-height: 1.6;
+    }
+
+    /* Partículas (opcional - pode remover) */
+    .particulas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    }
+
+    /* Navegação */
+    nav {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 15px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 20px;
+    }
+
+    .menu-link {
+      color: var(--preto);
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .menu-link:hover, .ativo {
+      color: var(--roxo);
+    }
+
+    /* Cabeçalho */
+    .cabecalho {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .foto-perfil {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--roxo);
+      margin: 0 auto 20px;
+      box-shadow: 0 5px 15px rgba(110, 69, 226, 0.3);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: var(--roxo);
+    }
+
+    .cabecalho-sub-titulo {
+      font-size: 1.2rem;
+      color: #777;
+      margin-bottom: 20px;
+    }
+
+    .redes-sociais {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-link {
+      color: var(--roxo);
+      font-size: 1.2rem;
+      transition: 0.3s;
+    }
+
+    .social-link:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Seções */
+    .secao {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .secao-titulo {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: var(--roxo);
+    }
+
+    /* Projetos */
+    .projetos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .projeto-card {
+      background: var(--branco);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .projeto-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .projeto-imagem {
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .projeto-imagem img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    .projeto-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .projeto-card h3 {
+      padding: 15px;
+      font-size: 1.2rem;
+    }
+
+    .projeto-card p {
+      padding: 0 15px 15px;
+      color: #777;
+    }
+
+    /* Contato */
+    .contato-form {
+      max-width: 500px;
+      margin: 0 auto;
+      background: var(--branco);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .btn-enviar {
+      background: var(--roxo);
+      color: var(--branco);
+      border: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      width: 100%;
+      transition: 0.3s;
+    }
+
+    .btn-enviar:hover {
+      background: #5a35c9;
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--cinza);
+      color: #777;
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      .menu {
+        flex-wrap: wrap;
+      }
+
+      .foto-perfil {
+        width: 150px;
+        height: 150px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Fundo de partículas -->
-  <div id="particles-js" class="particulas"></div>
+  <!-- Fundo opcional (partículas) -->
+  <div class="particulas"></div>
 
   <!-- Navegação -->
-  <nav class="navegacao">
-    <div class="container">
-      <ul class="menu">
-        <li><a href="#inicio" class="menu-link ativo"><i class="fas fa-home"></i> Início</a></li>
-        <li><a href="#sobre" class="menu-link"><i class="fas fa-user"></i> Sobre</a></li>
-        <li><a href="#projetos" class="menu-link"><i class="fas fa-code"></i> Projetos</a></li>
-        <li><a href="#contatos" class="menu-link"><i class="fas fa-envelope"></i> Contato</a></li>
-      </ul>
-    </div>
+  <nav>
+    <ul class="menu">
+      <li><a href="#inicio" class="menu-link ativo"><i class="fas fa-home"></i> Início</a></li>
+      <li><a href="#sobre" class="menu-link"><i class="fas fa-user"></i> Sobre</a></li>
+      <li><a href="#projetos" class="menu-link"><i class="fas fa-code"></i> Projetos</a></li>
+      <li><a href="#contato" class="menu-link"><i class="fas fa-envelope"></i> Contato</a></li>
+    </ul>
   </nav>
 
   <!-- Seção Início -->
-  <main id="inicio" class="cabecalho">
-    <div class="container">
-      <div class="foto-container">
-        <!-- IMAGEM GENÉRICA 1: Substitua por foto de perfil profissional -->
-        <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Desenvolvedor Front-End" class="foto-perfil">
-        <div class="cabecalho-texto">
-          <h1>Seu Nome</h1>
-          <p class="cabecalho-sub-titulo">Desenvolvedor Front-End</p>
-          <div class="redes-sociais">
-            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-          </div>
-          <!-- BOTÃO PARA VENDER NO FIFERR -->
-          <a href="#contatos" class="btn-comprar">Quero este template! <i class="fas fa-shopping-cart"></i></a>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <!-- Seção Sobre com Habilidades Interativas -->
-  <section id="sobre" class="secao sobre">
-    <div class="container">
-      <h2 class="secao-titulo">Sobre Mim</h2>
-      <div class="sobre-conteudo">
-        <div class="sobre-texto">
-          <p>Sou um desenvolvedor front-end apaixonado por criar interfaces modernas e responsivas. Com habilidades em HTML, CSS, JavaScript e frameworks modernos, busco sempre entregar produtos de alta qualidade.</p>
-          <p>Minha abordagem combina design criativo com código limpo e eficiente, garantindo a melhor experiência do usuário.</p>
-
-          <!-- Seção de Habilidades Interativa -->
-          <div class="habilidades-container">
-            <div class="habilidades-botoes">
-              <button class="habilidade-botao active" data-skill="html">
-                <i class="fab fa-html5"></i>
-              </button>
-              <button class="habilidade-botao" data-skill="css">
-                <i class="fab fa-css3-alt"></i>
-              </button>
-              <button class="habilidade-botao" data-skill="uiux">
-                <i class="fas fa-paint-brush"></i>
-              </button>
-              <button class="habilidade-botao" data-skill="react">
-                <i class="fab fa-react"></i>
-              </button>
-            </div>
-
-            <div class="habilidade-caixa">
-              <div class="habilidade-item active" data-skill="html">
-                <div class="habilidade-header">
-                  <span class="habilidade-nome">HTML5</span>
-                  <span class="habilidade-nivel">90%</span>
-                </div>
-                <div class="habilidade-barra-container">
-                  <div class="habilidade-barra" style="--progresso: 90%" data-tooltip="Avançado"></div>
-                </div>
-                <p class="habilidade-descricao">Estruturação semântica de conteúdo web</p>
-              </div>
-
-              <div class="habilidade-item" data-skill="css">
-                <div class="habilidade-header">
-                  <span class="habilidade-nome">CSS3</span>
-                  <span class="habilidade-nivel">85%</span>
-                </div>
-                <div class="habilidade-barra-container">
-                  <div class="habilidade-barra" style="--progresso: 85%" data-tooltip="Intermediário-Avançado"></div>
-                </div>
-                <p class="habilidade-descricao">Estilização e layout responsivo</p>
-              </div>
-
-              <div class="habilidade-item" data-skill="uiux">
-                <div class="habilidade-header">
-                  <span class="habilidade-nome">UI/UX</span>
-                  <span class="habilidade-nivel">80%</span>
-                </div>
-                <div class="habilidade-barra-container">
-                  <div class="habilidade-barra" style="--progresso: 80%" data-tooltip="Intermediário"></div>
-                </div>
-                <p class="habilidade-descricao">Design de interfaces intuitivas</p>
-              </div>
-
-              <div class="habilidade-item" data-skill="react">
-                <div class="habilidade-header">
-                  <span class="habilidade-nome">React</span>
-                  <span class="habilidade-nivel">75%</span>
-                </div>
-                <div class="habilidade-barra-container">
-                  <div class="habilidade-barra" style="--progresso: 75%" data-tooltip="Intermediário"></div>
-                </div>
-                <p class="habilidade-descricao">Componentes reutilizáveis</p>
-              </div>
-            </div>
-          </div>
-        </div>
+  <section id="inicio" class="cabecalho">
+    <div>
+      <!-- Imagem genérica (substitua pelo link da sua imagem) -->
+      <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Desenvolvedor" class="foto-perfil">
+      <h1>Seu Nome</h1>
+      <p class="cabecalho-sub-titulo">Desenvolvedor Front-End</p>
+      <div class="redes-sociais">
+        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
   </section>
 
   <!-- Seção Projetos -->
-  <section id="projetos" class="secao projetos">
-    <div class="container">
-      <h2 class="secao-titulo">Projetos Destacados</h2>
-      <div class="projetos-grid">
-        <!-- PROJETO 1: E-commerce genérico -->
-        <div class="projeto-card">
-          <div class="projeto-imagem">
-            <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="E-commerce">
-            <div class="projeto-overlay">
-              <a href="#" class="projeto-link"><i class="fas fa-external-link-alt"></i></a>
-              <a href="#" class="projeto-link"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
-          <h3>Loja Virtual</h3>
-          <p>Plataforma de e-commerce com carrinho e checkout.</p>
+  <section id="projetos" class="secao">
+    <h2 class="secao-titulo">Projetos</h2>
+    <div class="projetos-grid">
+      <!-- Projeto 1 -->
+      <div class="projeto-card">
+        <div class="projeto-imagem">
+          <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="E-commerce">
         </div>
+        <h3>Loja Virtual</h3>
+        <p>E-commerce completo com carrinho de compras.</p>
+      </div>
 
-        <!-- PROJETO 2: App de delivery genérico -->
-        <div class="projeto-card">
-          <div class="projeto-imagem">
-            <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="App Delivery">
-            <div class="projeto-overlay">
-              <a href="#" class="projeto-link"><i class="fas fa-external-link-alt"></i></a>
-              <a href="#" class="projeto-link"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
-          <h3>App Delivery</h3>
-          <p>Aplicativo de delivery com rastreamento em tempo real.</p>
+      <!-- Projeto 2 -->
+      <div class="projeto-card">
+        <div class="projeto-imagem">
+          <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="App Delivery">
         </div>
+        <h3>App Delivery</h3>
+        <p>Aplicativo de delivery com rastreamento.</p>
+      </div>
 
-        <!-- PROJETO 3: Rede social genérica -->
-        <div class="projeto-card">
-          <div class="projeto-imagem">
-            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Rede Social">
-            <div class="projeto-overlay">
-              <a href="#" class="projeto-link"><i class="fas fa-external-link-alt"></i></a>
-              <a href="#" class="projeto-link"><i class="fab fa-github"></i></a>
-            </div>
-          </div>
-          <h3>Rede Social</h3>
-          <p>Plataforma para compartilhamento de conteúdo.</p>
+      <!-- Projeto 3 -->
+      <div class="projeto-card">
+        <div class="projeto-imagem">
+          <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Rede Social">
         </div>
+        <h3>Rede Social</h3>
+        <p>Plataforma para compartilhar conteúdo.</p>
       </div>
     </div>
   </section>
 
   <!-- Seção Contato -->
-  <section id="contatos" class="secao contatos">
-    <div class="container">
-      <h2 class="secao-titulo">Entre em Contato</h2>
-      <div class="contato-conteudo">
-        <form class="contato-form" onsubmit="enviarWhatsapp(event)">
-          <div class="form-group">
-            <input type="text" id="nome" placeholder="Seu Nome" required>
-          </div>
-          <div class="form-group">
-            <textarea id="mensagem" placeholder="Sua Mensagem" rows="5" required></textarea>
-          </div>
-          <button type="submit" class="btn-enviar">Enviar via WhatsApp <i class="fab fa-whatsapp"></i></button>
-        </form>
+  <section id="contato" class="secao">
+    <h2 class="secao-titulo">Contato</h2>
+    <form class="contato-form">
+      <div class="form-group">
+        <input type="text" placeholder="Seu Nome" required>
       </div>
-    </div>
+      <div class="form-group">
+        <textarea placeholder="Sua Mensagem" required></textarea>
+      </div>
+      <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+    </form>
   </section>
 
   <!-- Rodapé -->
-  <footer class="rodape">
-    <div class="container">
-      <p>&copy; 2023 Portfólio Dev Front-End. Template vendido no Fiverr.</p>
-    </div>
+  <footer>
+    <p>&copy; 2023 Portfólio Dev. Template para Fiverr.</p>
   </footer>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <!-- Script para animação simples -->
   <script>
-    // Função para WhatsApp (substitua pelo seu número)
-    function enviarWhatsapp(event) {
-      event.preventDefault();
-      const nome = document.getElementById('nome').value;
-      const mensagem = document.getElementById('mensagem').value;
-      const telefone = 'SEU_NUMERO_AQUI'; // Altere!
-      const texto = `Olá, me chamo ${nome} - ${mensagem}`;
-      const msgformatada = encodeURIComponent(texto);
-      window.open(`https://wa.me/${telefone}?text=${msgformatada}`, '_blank');
-    }
-
-    // Controle das Habilidades Interativas
-    document.addEventListener('DOMContentLoaded', function() {
-      const botoesHabilidade = document.querySelectorAll('.habilidade-botao');
-
-      botoesHabilidade.forEach(botao => {
-        botao.addEventListener('click', function() {
-          const skill = this.dataset.skill;
-
-          // Remove active de todos
-          document.querySelectorAll('.habilidade-botao, .habilidade-item')
-            .forEach(el => el.classList.remove('active'));
-
-          // Adiciona active no clicado
-          this.classList.add('active');
-
-          // Mostra o item correspondente
-          const item = document.querySelector(`.habilidade-item[data-skill="${skill}"]`);
-          item.classList.add('active');
-
-          // Efeito de pulso
-          this.style.transform = 'scale(0.95)';
-          setTimeout(() => {
-            this.style.transform = 'scale(1.1)';
-          }, 50);
+    // Navegação suave
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
         });
       });
+    });
 
-      // Tooltips dinâmicos
-      const barrasHabilidade = document.querySelectorAll('.habilidade-barra');
-      barrasHabilidade.forEach(barra => {
-        barra.addEventListener('mouseover', function() {
-          const tooltip = this.getAttribute('data-tooltip');
-          if (tooltip) {
-            const tooltipElement = document.createElement('div');
-            tooltipElement.className = 'tooltip';
-            tooltipElement.textContent = tooltip;
-            this.appendChild(tooltipElement);
-          }
-        });
-        barra.addEventListener('mouseout', function() {
-          const tooltip = this.querySelector('.tooltip');
-          if (tooltip) tooltip.remove();
-        });
+    // Efeito hover nos cards
+    document.querySelectorAll('.projeto-card').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.15)';
       });
-
-      // Ativar a primeira habilidade por padrão
-      if (botoesHabilidade.length > 0) {
-        botoesHabilidade[0].click();
-      }
-    });
-
-    // Partículas.js
-    particlesJS("particles-js", {
-      "particles": {
-        "number": { "value": 80 },
-        "color": { "value": "#a64dff" },
-        "shape": { "type": "circle" },
-        "opacity": { "value": 0.5 },
-        "size": { "value": 3 },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#8000ff",
-          "opacity": 0.3,
-          "width": 1
-        },
-        "move": { 
-          "enable": true, 
-          "speed": 2,
-          "direction": "none",
-          "random": true,
-          "straight": false,
-          "out_mode": "out"
-        }
-      },
-      "interactivity": {
-        "events": {
-          "onhover": { 
-            "enable": true, 
-            "mode": "repulse" 
-          }
-        }
-      }
-    });
-
-    // Navegação ativa
-    const menuLinks = document.querySelectorAll('.menu-link');
-    menuLinks.forEach(link => {
-      link.addEventListener('click', function() {
-        menuLinks.forEach(l => l.classList.remove('ativo'));
-        this.classList.add('ativo');
+      card.addEventListener('mouseleave', () => {
+        card.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
       });
     });
   </script>
-
-  <style>
-    /* ESTILOS ADICIONAIS PARA O TEMPLATE FIVERR */
-    .btn-comprar {
-      background: linear-gradient(135deg, #6e45e2 0%, #88d3ce 100%);
-      color: white;
-      padding: 12px 25px;
-      border-radius: 30px;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 20px;
-      font-weight: 600;
-      transition: 0.3s;
-      box-shadow: 0 4px 15px rgba(110, 69, 226, 0.3);
-    }
-    .btn-comprar:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(110, 69, 226, 0.4);
-    }
-
-    .tooltip {
-      position: absolute;
-      bottom: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #333;
-      color: white;
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 12px;
-      white-space: nowrap;
-      z-index: 10;
-    }
-  </style>
 </body>
 </html>
